@@ -89,15 +89,15 @@ class Discriminator (nn.Module):
 # ----- COMPILING MODELS ----- #
 generator = Generator().to(device)
 
-#gOptimizer = torch.optim.SGD(generator.parameters(), lr=1e-2, momentum=0.5)
-gOptimizer = torch.optim.Adam(generator.parameters())
+gOptimizer = torch.optim.SGD(generator.parameters(), lr=1e-2, momentum=0.5)
+#gOptimizer = torch.optim.Adam(generator.parameters())
 gLoss = lambda x: categorical_loss(x, torch.zeros(x.shape[0]).to(device)) # = log(1-x)
 
 # discriminator
 judge = Discriminator().to(device)
 
-#jOptimizer = torch.optim.SGD(judge.parameters(), lr=1e-2, momentum=0.5)
-jOptimizer = torch.optim.Adam(judge.parameters())
+jOptimizer = torch.optim.SGD(judge.parameters(), lr=1e-2, momentum=0.5)
+#jOptimizer = torch.optim.Adam(judge.parameters())
 jLoss = lambda x: categorical_loss(x, torch.ones(x.shape[0]).to(device)) # = log(x)
 
 
