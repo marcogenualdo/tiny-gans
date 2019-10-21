@@ -22,7 +22,7 @@ input_size = train_imgs[0].shape[0]
 categorical_loss = nn.BCELoss()
 
 # generator
-noise_size = 100
+noise_size = 10
 
 class Generator (nn.Module):
     def __init__(self):
